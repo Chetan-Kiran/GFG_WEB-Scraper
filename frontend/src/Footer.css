@@ -95,6 +95,9 @@
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+  .app-footer {
+    width: 458px;
+  }
   .footer-inner {
     flex-direction: column;
     gap: 20px;

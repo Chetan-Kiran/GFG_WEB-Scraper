@@ -125,7 +125,8 @@ ul li b {
 /* Responsive tweaks */
 @media (max-width: 640px) {
   .container {
-    padding: 12px;
+    /* padding: 12px; */
+    width: 490px;
   }
   /* Stack controls vertically and make inputs full width for touch */
   .controls {
@@ -187,4 +188,16 @@ ul li b {
 .input-box:focus,
 .controls select:focus {
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.heading {
+  text-align: center;     /* center text inside the block */
+  margin: 20px auto;      /* center horizontally */
+  width: 100%;            /* span full width of parent */
+  display: block;
+}
+@media (max-width: 470px) {
+  .heading {
+    margin-left: 40px !important;
+  }
 }

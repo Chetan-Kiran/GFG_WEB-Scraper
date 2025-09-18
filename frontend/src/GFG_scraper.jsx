@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./GFG_scraper.css";
 
 import {
   Chart as ChartJS,
