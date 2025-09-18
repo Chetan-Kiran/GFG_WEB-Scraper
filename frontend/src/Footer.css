@@ -1,0 +1,109 @@
+/* Footer Base */
+.app-footer {
+  margin-top: 150px;
+  padding: 24px 32px;
+  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+  font-family: Inter, Roboto, "Segoe UI", system-ui, Arial, sans-serif;
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.04);
+}
+
+/* Flex container */
+.footer-inner {
+  display: flex;
+  justify-content: space-between; /* spread sections on big screens */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 40px; /* balanced spacing between groups */
+}
+
+/* Section Styles */
+.contact,
+.profiles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* left-align on desktop */
+  min-width: 180px;
+}
+
+.contact h4,
+.profiles h4 {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Email badge */
+.contact .email {
+  color: #0369a1;
+  text-decoration: none;
+  font-weight: 600;
+  background: linear-gradient(90deg, #e0f2fe, #bae6fd);
+  padding: 8px 14px;
+  border-radius: 10px;
+  display: inline-block;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.contact .email:hover {
+  background: #0369a1;
+  color: #fff;
+}
+
+/* Social profiles */
+.profiles ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.profiles a {
+  color: #0f172a;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #fef9c3, #fde68a);
+  transition: all 0.2s ease;
+}
+.profiles a:hover {
+  color: #fff;
+  background: #f59e0b;
+  transform: translateY(-2px);
+}
+
+.profiles svg {
+  font-size: 20px;
+}
+
+/* Footer note */
+.footer-note {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #64748b;
+  text-align: center;
+  flex-basis: 100%; /* ensures it spans full width */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact,
+  .profiles {
+    align-items: center;
+  }
+}
