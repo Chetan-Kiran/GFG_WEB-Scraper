@@ -22,14 +22,14 @@ async function getTotalProblemsSolved(username) {
     return data;
 }
 
-async function getMonthlySubmissions(username, month) {
+async function getMonthlySubmissions(username, month, year) {
     const url =
       "https://practiceapi.geeksforgeeks.org/api/v1/user/problems/submissions/";
     const body = {
         handle: username,
-        month: month,
+        month: Number(month),
         requestType: "getMonthwiseUserSubmissions",
-        year: 2025,
+        year: Number(year),
     };
 
     const response = await fetch(url, {
@@ -46,7 +46,7 @@ async function getMonthlySubmissions(username, month) {
 
 app.get('/api/problems/:username', async (req, res) => {
     const { username} = req.params;
-    const { month } = req.query;
+    const { month, year } = req.query;
     try{
         const totalproblems = await getTotalProblemsSolved(username);
         const counts = {
@@ -58,7 +58,7 @@ app.get('/api/problems/:username', async (req, res) => {
             Total : totalproblems.count || 0
         }
 
-        const monthlysubmissions = await getMonthlySubmissions(username, month);
+        const monthlysubmissions = await getMonthlySubmissions(username, month, year);
         res.json({
             counts,
             monthlySubmissions: monthlysubmissions.result
