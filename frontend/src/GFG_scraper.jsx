@@ -27,6 +27,7 @@ function GFG_scraper() {
   const [dates, setDates] = useState({});
   const [username, setUsername] = useState("");
   const [month, setMonth] = useState("");
+  const [year, setYear] = useState(new Date().getFullYear());
   const [loading, setLoading] = useState(false);
 
   // Prepare chart data (ensure chronological order)
@@ -118,12 +119,11 @@ function GFG_scraper() {
 
   const fetchMonth = async () => {
     const response = await fetch(
-      `https://api-gfg-scrp.onrender.com/api/problems/${username}?month=${month}`
+      `http://localhost:5000/api/problems/${username}?month=${month}&year=${year}`,
     );
     const result = await response.json();
 
-    const year = 2025;
-    const allDays = getDaysInMonth(year, parseInt(month));
+    const allDays = getDaysInMonth(parseInt(year), parseInt(month));
     const sortedEntries = Object.entries(result.monthlySubmissions || {}).sort(
       ([a], [b]) => a.localeCompare(b)
     );
@@ -181,6 +181,17 @@ function GFG_scraper() {
             <option value="10">October</option>
             <option value="11">November</option>
             <option value="12">December</option>
+          </select>
+        </form>
+        <form>
+          <label>Select year:</label>
+          <select value={year} onChange={(e) => setYear(e.target.value)}>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
           </select>
         </form>
         <button onClick={handleFetch}>Fetch</button>
