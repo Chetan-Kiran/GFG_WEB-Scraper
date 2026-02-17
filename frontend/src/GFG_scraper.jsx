@@ -119,7 +119,7 @@ function GFG_scraper() {
 
   const fetchMonth = async () => {
     const response = await fetch(
-      `http://localhost:5000/api/problems/${username}?month=${month}&year=${year}`,
+      `https://api-gfg-scrp.onrender.com/api/problems/${username}?month=${month}&year=${year}`,
     );
     const result = await response.json();
 
